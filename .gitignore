@@ -2,3 +2,5 @@
 logs/*
 *.log
 *.tmp
+dashboard.sh.backup
+
