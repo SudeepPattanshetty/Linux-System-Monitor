@@ -8,11 +8,11 @@ SLEEPING_PROCESSES=$(ps -eo stat --no-headers | grep '^[SDI]' | wc -l)
 ZOMBIE_PROCESSES=$(ps -eo stat --no-headers | grep '^Z' | wc -l)
 STOPPED_PROCESS=$(ps -eo stat --no-headers | grep '^[Tt]' | wc -l)
 
-echo "Total Processes	 : $TOTAL_PROCESSES"
-echo "Running Processes	 : $RUNNING_PROCESSES"
-echo "Sleeping Processes : $SLEEPING_PROCESSES"
-echo "Stopped Processes	 : $STOPPED_PROCESS"
-echo "Zombie Processes:	 : $ZOMBIE_PROCESSES"
+echo "Total Processes	: $TOTAL_PROCESSES"
+echo "Running Processes	: $RUNNING_PROCESSES"
+echo "Sleeping Processes	: $SLEEPING_PROCESSES"
+echo "Stopped Processes	: $STOPPED_PROCESS"
+echo "Zombie Processes	: $ZOMBIE_PROCESSES"
 
 echo ""
 echo "Top CPU Processes"
