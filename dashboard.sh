@@ -37,6 +37,10 @@ echo ""
 "$MODULE_DIR/health.sh"
 
 echo ""
+echo "====================MONITORING LOG===================="
+"$MODULE_DIR/logger.sh"
+
+echo ""
 echo "============================================================"
 echo "                  DASHBOARD COMPLETE"
 echo "============================================================"
