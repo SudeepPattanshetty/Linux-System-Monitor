@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "=================================Network Monitoring==========================================="
+echo "======================================Network Monitoring======================================"
 
 HOSTNAME=$(hostname)
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
