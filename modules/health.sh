@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source "$(dirname "${BASH_SOURCE[0]}")/colors.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/status.sh"
+
 echo "============================================================"
 echo "                 SYSTEM HEALTH STATUS"
 echo "============================================================"
@@ -68,12 +71,17 @@ elif [ "$CPU_STATUS" = "WARNING" ] || \
 fi
 
 echo ""
-echo "CPU Usage        : $CPU_USAGE%     [$CPU_STATUS]"
-echo "Memory Usage     : $MEM_USAGE%     [$MEM_STATUS]"
-echo "Disk Usage       : $DISK_USAGE     [$DISK_STATUS]"
-echo "Zombie Processes : $ZOMBIE_PROCESSES     [$ZOMBIE_STATUS]"
+echo -n "CPU Usage        : $CPU_USAGE%      	"
+show_status "$CPU_STATUS"
+echo -n "Memory Usage     : $MEM_USAGE%     	"
+show_status "$MEM_STATUS"
+echo -n "Disk Usage       : $DISK_USAGE   	"
+show_status "$DISK_STATUS"
+echo -n "Zombie Processes : $ZOMBIE_PROCESSES		"
+show_status "$ZOMBIE_STATUS"
 
 echo ""
 echo "------------------------------------------------------------"
-echo "Overall Status   : $OVERALL_STATUS"
+echo -n "Overall Status   :	"
+show_status "$OVERALL_STATUS"
 echo "============================================================"

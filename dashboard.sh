@@ -3,45 +3,66 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASE_SOURCE[0]}")" && pwd)"
 MODULE_DIR="$SCRIPT_DIR/modules"
 
-clear
+source "$MODULE_DIR/colors.sh"
 
-echo "====================================================================================================="
-echo "                           Linux System Monitoring Dashboard   "
-echo "====================================================================================================="
+REFRESH_INTERVAL=60
 
-echo ""
-echo "Hostname : $(hostname)"
-echo "User     : $(whoami)"
-echo "Date     : $(date)"
-echo ""
+cleanup() {
+	clear
+	echo ""
+	echo "======================================================================================================"
+	echo "                        Linux System Monitoring Dashboard Stopped                                     "
+	echo "======================================================================================================"
+	echo ""
+	exit 0
+}
 
-echo ""
-"$MODULE_DIR/cpu.sh"
+trap cleanup SIGNIT SIGTERM
 
-echo ""
-"$MODULE_DIR/memory.sh"
+while true
+do
+	clear
 
-echo ""
-"$MODULE_DIR/disk.sh"
+	echo -e  "${CYAN}=====================================================================================================${RESET}"
+	echo -e  "                           LINUX SYSTEM MONITORING DASHBOARD"
+	echo -e  "${CYAN}=====================================================================================================${RESET}"
 
-echo ""
-"$MODULE_DIR/process.sh"
+	echo ""
+	echo "Hostname : $(hostname)"
+	echo "User     : $(whoami)"
+	echo "Date     : $(date)"
+	echo ""
 
-echo""
-"$MODULE_DIR/network.sh"
+	echo ""
+	"$MODULE_DIR/cpu.sh"
 
-echo ""
-"$MODULE_DIR/system.sh"
+	echo ""
+	"$MODULE_DIR/memory.sh"
 
-echo ""
-"$MODULE_DIR/health.sh"
+	echo ""
+	"$MODULE_DIR/disk.sh"
 
-echo ""
-echo "====================MONITORING LOG===================="
-"$MODULE_DIR/logger.sh"
+	echo ""
+	"$MODULE_DIR/process.sh"
 
-echo ""
-echo "============================================================"
-echo "                  DASHBOARD COMPLETE"
-echo "============================================================"
+	echo""
+	"$MODULE_DIR/network.sh"
 
+	echo ""
+	"$MODULE_DIR/system.sh"
+
+	echo ""
+	"$MODULE_DIR/health.sh"
+
+	echo ""
+	echo "====================MONITORING LOG===================="
+	"$MODULE_DIR/logger.sh"
+
+	echo ""
+	echo "============================================================"
+	echo " Refreshing in $REFRESH_INTERVAL seconds..."
+	echo " Press Ctrl+c to exit"
+	echo "============================================================"
+
+	sleep "$REFRESH_INTERVAL"
+done
