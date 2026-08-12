@@ -40,32 +40,6 @@ Architecture
                          |
                   system-monitor.log
 
-Project Structure
------------------
-
-linux-system-monitor/
-|
-+-- dashboard.sh
-|
-+-- modules/
-|   +-- cpu.sh
-|   +-- memory.sh
-|   +-- disk.sh
-|   +-- process.sh
-|   +-- network.sh
-|   +-- system.sh
-|   +-- health.sh
-|   +-- logger.sh
-|   +-- log-viewer.sh
-|   +-- colors.sh
-|   +-- status.sh
-|
-+-- docs/
-+-- logs/
-+-- screenshots/
-+-- README.md
-+-- LICENSE
-+-- .gitignore
 
 Technologies
 ------------
