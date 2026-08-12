@@ -1,6 +1,9 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASE_SOURCE[0]}")" && pwd)"
+set -e
+set -o pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULE_DIR="$SCRIPT_DIR/modules"
 
 source "$MODULE_DIR/colors.sh"
@@ -17,7 +20,7 @@ cleanup() {
 	exit 0
 }
 
-trap cleanup SIGNIT SIGTERM
+trap cleanup SIGINT SIGTERM
 
 while true
 do
@@ -45,7 +48,7 @@ do
 	echo ""
 	"$MODULE_DIR/process.sh"
 
-	echo""
+	echo ""
 	"$MODULE_DIR/network.sh"
 
 	echo ""

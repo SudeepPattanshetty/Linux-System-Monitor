@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname "${BASE_SOURCE[0]}")/colors.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/colors.sh"
 
 show_status() {
 
