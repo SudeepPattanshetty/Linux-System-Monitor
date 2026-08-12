@@ -172,3 +172,15 @@ Future Improvements
 - AWS CloudWatch integration
 - Systemd service
 - Remote server monitoring
+
+
+Quick Installation
+------------------
+
+Run:
+
+./install.sh
+
+Then start the dashboard:
+
+./dashboard.sh
